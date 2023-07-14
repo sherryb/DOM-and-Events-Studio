@@ -3,6 +3,8 @@
 
 window.addEventListener("load", (event) => {
     console.log("Window Loaded")
+    const spaceShuttleHeight = document.getElementById("spaceShuttleHeight")
+    spaceShuttleHeight.textContent = Number(0)
     addEventListeners()
 })
 
@@ -11,7 +13,7 @@ function addEventListeners() {
     const takeOffButton = document.getElementById("takeoff")
     takeOffButton.addEventListener("click", (event) => {
         let userConfirm = window.confirm("Confirm that the shuttle is ready for takeoff")
-        if(userConfirm) {
+        if (userConfirm) {
             doLiftoff();
         }
     })
@@ -24,7 +26,7 @@ function addEventListeners() {
     const abortButton = document.getElementById("missionAbort")
     abortButton.addEventListener("click", (event) => {
         let userConfirm = window.confirm("Confirm that you want to abort the mission")
-        if(userConfirm){
+        if (userConfirm) {
             doAbort();
         }
     })
@@ -39,19 +41,20 @@ function addEventListeners() {
 
 
     upButton.addEventListener("click", (event) => {
-        shuttleHeight.innerHTML += 10000;
+        shuttleHeight.textContent += 10000;
+
     })
 
     downButton.addEventListener("click", (event) => {
-        shuttleHeight.innerHTML -= 10000;
+        shuttleHeight.textContent -= 10000;
     })
 
     leftButton.addEventListener("click", (event) => {
-        
+
     })
 
     rightButton.addEventListener("click", (event) => {
-        
+
     })
 
 
@@ -64,19 +67,19 @@ function doLiftoff() {
     const shuttleBackground = document.getElementById("shuttleBackground");
     shuttleBackground.style.backgroundColor = "blue";
     const shuttleHeight = document.getElementById("spaceShuttleHeight");
-    shuttleHeight.innerHTML = 10000;
+    shuttleHeight.textContent += 10000;
 
 }
 
 function doLanding() {
-    
+
     window.alert("The shuttle is landing. Landing gear engaged.");
     const shuttleStatus = document.getElementById("flightStatus");
     shuttleStatus.innerHTML = "The shuttle has landed";
     const shuttleBackground = document.getElementById("shuttleBackground");
     shuttleBackground.style.backgroundColor = "green";
     const shuttleHeight = document.getElementById("spaceShuttleHeight");
-    shuttleHeight.innerHtml = 0;
+    shuttleHeight.textContent = 0;
 
 }
 
@@ -87,6 +90,6 @@ function doAbort() {
     const shuttleBackground = document.getElementById("shuttleBackground");
     shuttleBackground.style.backgroundColor = "green";
     const shuttleHeight = document.getElementById("spaceShuttleHeight");
-    shuttleHeight.innerHtml = 0;
+    shuttleHeight.textContent = 0;
 
 }
